@@ -23,9 +23,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     v.vmx["gui.fitguestusingnativedisplayresolution"] = "TRUE"
     v.vmx["mks.enable3d"] = "TRUE"
     v.vmx["mks.forceDiscreteGPU"] = "TRUE"
-    v.vmx["gui.fullscreenatpoweron"] = "TRUE"
-    v.vmx["gui.viewmodeatpoweron"] = "fullscreen"
-    v.vmx["gui.lastPoweredViewMode"] = "fullscreen"
+    v.vmx["gui.fullscreenatpoweron"] = "FALSE"
+    v.vmx["gui.viewmodeatpoweron"] = "windowed"
+    v.vmx["gui.lastPoweredViewMode"] = "windowed"
     v.vmx["sound.startconnected"] = "TRUE"
     v.vmx["sound.present"] = "TRUE"
     v.vmx["sound.autodetect"] = "TRUE"
@@ -51,10 +51,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision "shell", path: "scripts/install-chocolatey.ps1", privileged: false
   config.vm.provision "shell", path: "scripts/install-git.ps1", privileged: false
   config.vm.provision "shell", path: "scripts/install-atom.ps1", privileged: false
+  config.vm.provision "shell", path: "scripts/install-java.ps1", privileged: false
   config.vm.provision "shell", path: "scripts/set-dns.ps1", privileged: false
   config.vm.provision "shell", path: "scripts/set-timezone.ps1", privileged: false
   config.vm.provision "shell", path: "scripts/set-keyboard.ps1", privileged: false
   config.vm.provision "shell", path: "scripts/insert-ssh-key.ps1", privileged: false
   config.vm.provision "shell", path: "scripts/install-posh-git.ps1", privileged: false
- 
+  config.vm.provision "shell", path: "scripts/set-wallpaper.ps1", privileged: false
 end
